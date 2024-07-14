@@ -1,1 +1,11 @@
-# Weather_Monitoring_System
+The ESP32-based project utilizes a DHT22 sensor to measure temperature and humidity, displaying the readings on an SSD1306 OLED screen and sending email alerts with these readings at regular intervals. The project is programmed using MicroPython, and it integrates several key components and libraries to achieve its functionality.
+
+First, the DHT22 sensor, connected to pin 14, is used to measure temperature and humidity. The readings from the sensor are processed and displayed on an SSD1306 OLED screen, which is connected via I2C with pin assignments for SDA and SCL. The OLED display is initialized with a resolution of 128x64 pixels, and it shows the temperature in degrees Celsius and the humidity percentage. Additionally, the display includes a credit line mentioning the contributors to the project: Mayank, Mihir, and Honey.
+
+To connect to a Wi-Fi network, the code includes a function to establish a connection using provided SSID and password credentials. Once connected, the ESP32 obtains an IP address and can communicate with external servers. This network connection is essential for the email functionality of the project.
+
+The email sending feature leverages the `umail` library, a lightweight SMTP client for MicroPython. The ESP32 logs into a Gmail account using provided credentials and sends email notifications with the sensor readings. The email includes the sender's name and email address, the recipient's email address, and a subject line indicating the nature of the email. The body of the email contains the current temperature and humidity readings. This functionality is designed to trigger every 10 seconds, ensuring regular updates.
+
+Throughout the operation, the code handles potential errors, such as sensor reading failures, and displays an appropriate message on the OLED screen if an error occurs. This error handling ensures that the user is informed of any issues that may arise during the execution of the project.
+
+In summary, this project showcases the integration of a DHT22 sensor for environmental monitoring, an SSD1306 OLED display for real-time data visualization, and an email notification system using an ESP32 microcontroller. It demonstrates the use of various MicroPython libraries for handling I2C communication, sensor data processing, network connectivity, and email sending, making it a comprehensive example of an IoT application.
